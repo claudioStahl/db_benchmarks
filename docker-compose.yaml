@@ -1,0 +1,28 @@
+version: "3.2"
+
+volumes:
+  postgres_data:
+    driver: local       
+
+services:
+  postgres:
+    build: ./postgres
+    # ref: https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-LINE-PREFIX
+    # command: ["-c", "config_file=/etc/postgresql/postgresql.conf", "-c", "log_statement=all", "-c", "log_line_prefix=p:%p c:%c l:%l v:%v x:%x "]
+    command: ["-c", "config_file=/etc/postgresql/postgresql.conf"]
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./postgres/postgresql.conf:/etc/postgresql/postgresql.conf      
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    deploy:
+      resources:
+        limits:
+          cpus: "2"
+          memory: "4G"
+        reservations:
+          cpus: "1"
+          memory: "2G"      
