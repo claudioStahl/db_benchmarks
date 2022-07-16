@@ -9,9 +9,7 @@
 ## Commands
 
 1. `mix setup`
-2. `mix db_benchmarks.compare_selects 1`
-2. `mix db_benchmarks.compare_selects 2`
-3. `mix db_benchmarks.compare_inserts`
+2. `mix db_benchmarks.compare_all`
 
 ## Outputs
 
