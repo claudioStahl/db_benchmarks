@@ -10,8 +10,6 @@ defmodule Mix.Tasks.DbBenchmarks.CompareSelects do
   @tables ~w(
     transaction_with_partition
     transaction_without_partition
-    transaction_with_partition_and_brin
-    transaction_with_partition_and_brin2
   )
 
   def run(args) do
