@@ -39,6 +39,8 @@ defmodule DbBenchmarks.MixProject do
       "db_benchmarks.compare_all": [
         "db_benchmarks.compare_selects 1",
         "db_benchmarks.compare_selects 2",
+        "db_benchmarks.compare_selects 3",
+        "db_benchmarks.compare_selects 4",
         "db_benchmarks.compare_inserts"
       ]
     ]
