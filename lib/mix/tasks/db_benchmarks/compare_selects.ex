@@ -10,6 +10,8 @@ defmodule Mix.Tasks.DbBenchmarks.CompareSelects do
   @tables ~w(
     transaction_with_partition
     transaction_without_partition
+    transaction_with_weekly_partition
+    transaction_with_daily_partition
   )
 
   @dates [

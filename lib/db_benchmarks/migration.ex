@@ -16,7 +16,7 @@ defmodule DbBenchmarks.Migration do
     """)
   end
 
-  def create_partition(table) do
+  def create_partition(table, interval \\ "monthly", premake \\ 30) do
     execute("""
     CREATE TABLE "#{table}" (
       "id" bigserial,
@@ -33,8 +33,8 @@ defmodule DbBenchmarks.Migration do
       p_parent_table => 'public.#{table}',
       p_control => 'inserted_at',
       p_type => 'native',
-      p_interval => 'monthly',
-      p_premake => 30,
+      p_interval => '#{interval}',
+      p_premake => #{premake},
       p_start_partition => '2022-01-01'
     );
     """)

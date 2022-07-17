@@ -10,6 +10,8 @@ defmodule Mix.Tasks.DbBenchmarks.CompareInserts do
   @tables ~w(
     transaction_with_partition
     transaction_without_partition
+    transaction_with_weekly_partition
+    transaction_with_daily_partition
   )
 
   def run(_args) do
