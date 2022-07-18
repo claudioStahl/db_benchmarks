@@ -1,0 +1,166 @@
+claudio@ubuntuserver:~/db_benchmarks$ mix db_benchmarks.compare_all
+[info] Elixir.Mix.Tasks.DbBenchmarks.CompareSelects.run from=2022-11-30 00:00:00 to=2022-12-01 23:59:59
+Operating System: Linux
+CPU Information: Intel(R) Core(TM) i5-8400 CPU @ 2.80GHz
+Number of Available Cores: 6
+Available memory: 15.56 GB
+Elixir 1.13.4
+Erlang 25.0.2
+
+Benchmark suite executing with the following configuration:
+warmup: 10 s
+time: 50 s
+memory time: 0 ns
+reduction time: 0 ns
+parallel: 10
+inputs: none specified
+Estimated total run time: 4 min
+
+Benchmarking transaction_with_daily_partition ...
+Benchmarking transaction_with_partition ...
+Benchmarking transaction_with_weekly_partition ...
+Benchmarking transaction_without_partition ...
+
+Name                                        ips        average  deviation         median         99th %
+transaction_without_partition             13.44       0.0744 s   ±130.97%       0.0373 s         0.44 s
+transaction_with_partition                 8.82        0.113 s    ±91.16%       0.0928 s         0.45 s
+transaction_with_daily_partition           0.21         4.72 s    ±73.48%         3.68 s        12.11 s
+transaction_with_weekly_partition         0.188         5.32 s    ±71.72%         4.61 s        13.73 s
+
+Comparison: 
+transaction_without_partition             13.44
+transaction_with_partition                 8.82 - 1.52x slower +0.0390 s
+transaction_with_daily_partition           0.21 - 63.40x slower +4.64 s
+transaction_with_weekly_partition         0.188 - 71.51x slower +5.25 s
+[info] Elixir.Mix.Tasks.DbBenchmarks.CompareSelects.run from=2022-12-02 00:00:00 to=2022-12-03 23:59:59
+Operating System: Linux
+CPU Information: Intel(R) Core(TM) i5-8400 CPU @ 2.80GHz
+Number of Available Cores: 6
+Available memory: 15.56 GB
+Elixir 1.13.4
+Erlang 25.0.2
+
+Benchmark suite executing with the following configuration:
+warmup: 10 s
+time: 50 s
+memory time: 0 ns
+reduction time: 0 ns
+parallel: 10
+inputs: none specified
+Estimated total run time: 4 min
+
+Benchmarking transaction_with_daily_partition ...
+Benchmarking transaction_with_partition ...
+Benchmarking transaction_with_weekly_partition ...
+Benchmarking transaction_without_partition ...
+
+Name                                        ips        average  deviation         median         99th %
+transaction_with_partition                36.05       0.0277 s   ±160.81%      0.00731 s         0.22 s
+transaction_without_partition             14.26       0.0701 s   ±127.95%       0.0351 s         0.40 s
+transaction_with_weekly_partition          0.22         4.57 s    ±78.22%         3.83 s        12.41 s
+transaction_with_daily_partition          0.195         5.14 s    ±68.86%         4.27 s        12.04 s
+
+Comparison: 
+transaction_with_partition                36.05
+transaction_without_partition             14.26 - 2.53x slower +0.0424 s
+transaction_with_weekly_partition          0.22 - 164.63x slower +4.54 s
+transaction_with_daily_partition          0.195 - 185.24x slower +5.11 s
+[info] Elixir.Mix.Tasks.DbBenchmarks.CompareSelects.run from=2022-12-15 00:00:00 to=2022-12-16 23:59:59
+Operating System: Linux
+CPU Information: Intel(R) Core(TM) i5-8400 CPU @ 2.80GHz
+Number of Available Cores: 6
+Available memory: 15.56 GB
+Elixir 1.13.4
+Erlang 25.0.2
+
+Benchmark suite executing with the following configuration:
+warmup: 10 s
+time: 50 s
+memory time: 0 ns
+reduction time: 0 ns
+parallel: 10
+inputs: none specified
+Estimated total run time: 4 min
+
+Benchmarking transaction_with_daily_partition ...
+Benchmarking transaction_with_partition ...
+Benchmarking transaction_with_weekly_partition ...
+Benchmarking transaction_without_partition ...
+
+Name                                        ips        average  deviation         median         99th %
+transaction_with_partition                23.50       0.0425 s   ±136.26%       0.0191 s         0.26 s
+transaction_without_partition             13.14       0.0761 s   ±123.33%       0.0414 s         0.41 s
+transaction_with_weekly_partition          0.22         4.50 s    ±78.78%         4.33 s        13.24 s
+transaction_with_daily_partition           0.20         4.97 s    ±71.13%         4.66 s        12.79 s
+
+Comparison: 
+transaction_with_partition                23.50
+transaction_without_partition             13.14 - 1.79x slower +0.0336 s
+transaction_with_weekly_partition          0.22 - 105.67x slower +4.45 s
+transaction_with_daily_partition           0.20 - 116.72x slower +4.92 s
+[info] Elixir.Mix.Tasks.DbBenchmarks.CompareSelects.run from=2022-12-28 00:00:00 to=2022-12-29 23:59:59
+Operating System: Linux
+CPU Information: Intel(R) Core(TM) i5-8400 CPU @ 2.80GHz
+Number of Available Cores: 6
+Available memory: 15.56 GB
+Elixir 1.13.4
+Erlang 25.0.2
+
+Benchmark suite executing with the following configuration:
+warmup: 10 s
+time: 50 s
+memory time: 0 ns
+reduction time: 0 ns
+parallel: 10
+inputs: none specified
+Estimated total run time: 4 min
+
+Benchmarking transaction_with_daily_partition ...
+Benchmarking transaction_with_partition ...
+Benchmarking transaction_with_weekly_partition ...
+Benchmarking transaction_without_partition ...
+
+Name                                        ips        average  deviation         median         99th %
+transaction_with_partition               178.59      0.00560 s    ±37.66%      0.00523 s       0.0124 s
+transaction_without_partition             17.45       0.0573 s   ±151.39%      0.00521 s         0.39 s
+transaction_with_weekly_partition          0.26         3.81 s    ±94.54%         2.37 s        13.25 s
+transaction_with_daily_partition           0.21         4.86 s    ±76.61%         3.88 s        12.18 s
+
+Comparison: 
+transaction_with_partition               178.59
+transaction_without_partition             17.45 - 10.24x slower +0.0517 s
+transaction_with_weekly_partition          0.26 - 680.16x slower +3.80 s
+transaction_with_daily_partition           0.21 - 867.87x slower +4.85 s
+[info] Elixir.Mix.Tasks.DbBenchmarks.CompareInserts.run
+Operating System: Linux
+CPU Information: Intel(R) Core(TM) i5-8400 CPU @ 2.80GHz
+Number of Available Cores: 6
+Available memory: 15.56 GB
+Elixir 1.13.4
+Erlang 25.0.2
+
+Benchmark suite executing with the following configuration:
+warmup: 10 s
+time: 10 s
+memory time: 0 ns
+reduction time: 0 ns
+parallel: 10
+inputs: none specified
+Estimated total run time: 1.33 min
+
+Benchmarking transaction_with_daily_partition ...
+Benchmarking transaction_with_partition ...
+Benchmarking transaction_with_weekly_partition ...
+Benchmarking transaction_without_partition ...
+
+Name                                        ips        average  deviation         median         99th %
+transaction_with_daily_partition          51.13       19.56 ms    ±90.40%       16.68 ms      125.42 ms
+transaction_with_partition                50.10       19.96 ms    ±95.30%       16.69 ms      133.30 ms
+transaction_with_weekly_partition          7.05      141.84 ms    ±49.99%      125.51 ms      508.12 ms
+transaction_without_partition              4.22      237.20 ms    ±40.13%      225.00 ms      500.19 ms
+
+Comparison: 
+transaction_with_daily_partition          51.13
+transaction_with_partition                50.10 - 1.02x slower +0.40 ms
+transaction_with_weekly_partition          7.05 - 7.25x slower +122.29 ms
+transaction_without_partition              4.22 - 12.13x slower +217.65 ms
