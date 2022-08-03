@@ -1,7 +1,7 @@
 defmodule Mix.Tasks.DbBenchmarks.Analyze do
   use Mix.Task
 
-  alias DbBenchmarks.Repo
+  alias DbBenchmarks.PostgresRepo
 
   require Logger
 
@@ -10,6 +10,6 @@ defmodule Mix.Tasks.DbBenchmarks.Analyze do
   def run(_args) do
     Logger.info("#{__MODULE__}.run")
 
-    Repo.query!("ANALYZE", [], timeout: :infinity)
+    PostgresRepo.query!("ANALYZE", [], timeout: :infinity)
   end
 end
