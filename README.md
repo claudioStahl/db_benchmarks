@@ -2,7 +2,6 @@
 
 ## Requirements
 
-- disk 150GB
 - erlang 25.0.2
 - elixir 1.13.4-otp-25
 
