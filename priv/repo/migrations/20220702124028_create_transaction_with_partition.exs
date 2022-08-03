@@ -8,6 +8,11 @@ defmodule DbBenchmarks.Repo.Migrations.CreateTransactionWithPartition do
     Migration.insert_rows("transaction_with_partition")
 
     execute("""
+    ALTER TABLE transaction_with_partition
+    ADD PRIMARY KEY ("inserted_at", "id")
+    """)
+
+    execute("""
     CREATE INDEX transaction_with_partition_idx ON transaction_with_partition (
       user_id, inserted_at DESC
     )

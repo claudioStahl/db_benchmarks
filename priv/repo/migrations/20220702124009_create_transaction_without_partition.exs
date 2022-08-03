@@ -10,12 +10,16 @@ defmodule DbBenchmarks.Repo.Migrations.CreateTransactionWithoutPartition do
       "user_id" varchar(255) NOT NULL,
       "value" bigint NOT NULL,
       "balance" bigint NOT NULL,
-      "inserted_at" timestamp(0) NOT NULL,
-      PRIMARY KEY ("id")
+      "inserted_at" timestamp(0) NOT NULL
     )
     """)
 
     Migration.insert_rows("transaction_without_partition")
+
+    execute("""
+    ALTER TABLE transaction_without_partition
+    ADD PRIMARY KEY (id)
+    """)
 
     execute("""
     CREATE INDEX transaction_without_partition_idx ON transaction_without_partition (

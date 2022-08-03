@@ -23,8 +23,7 @@ defmodule DbBenchmarks.Migration do
       "user_id" varchar(255) NOT NULL,
       "value" bigint NOT NULL,
       "balance" bigint NOT NULL,
-      "inserted_at" timestamp(0) NOT NULL,
-      PRIMARY KEY ("inserted_at", "id")
+      "inserted_at" timestamp(0) NOT NULL
     ) PARTITION BY RANGE (inserted_at);
     """)
 
