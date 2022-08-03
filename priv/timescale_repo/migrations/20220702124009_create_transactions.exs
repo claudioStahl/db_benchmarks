@@ -14,12 +14,11 @@ defmodule DbBenchmarks.TimescaleRepo.Migrations.CreateTransactionWithoutPartitio
     )
     """)
 
-    Migration.insert_rows("transactions")
-
     execute("""
-    ALTER TABLE transactions
-    ADD PRIMARY KEY (id)
+    SELECT create_hypertable('transactions', 'inserted_at');
     """)
+
+    Migration.insert_rows("transactions")
 
     execute("""
     CREATE INDEX transactions_idx ON transactions (

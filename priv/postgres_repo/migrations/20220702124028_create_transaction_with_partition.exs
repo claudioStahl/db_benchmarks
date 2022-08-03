@@ -7,10 +7,10 @@ defmodule DbBenchmarks.PostgresRepo.Migrations.CreateTransactionWithPartition do
     Migration.create_partition("transaction_with_partition")
     Migration.insert_rows("transaction_with_partition")
 
-    execute("""
-    ALTER TABLE transaction_with_partition
-    ADD PRIMARY KEY ("inserted_at", "id")
-    """)
+    # execute("""
+    # ALTER TABLE transaction_with_partition
+    # ADD PRIMARY KEY ("inserted_at", "id")
+    # """)
 
     execute("""
     CREATE INDEX transaction_with_partition_idx ON transaction_with_partition (

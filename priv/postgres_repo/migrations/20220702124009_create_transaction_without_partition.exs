@@ -16,10 +16,10 @@ defmodule DbBenchmarks.PostgresRepo.Migrations.CreateTransactionWithoutPartition
 
     Migration.insert_rows("transaction_without_partition")
 
-    execute("""
-    ALTER TABLE transaction_without_partition
-    ADD PRIMARY KEY (id)
-    """)
+    # execute("""
+    # ALTER TABLE transaction_without_partition
+    # ADD PRIMARY KEY (id)
+    # """)
 
     execute("""
     CREATE INDEX transaction_without_partition_idx ON transaction_without_partition (
