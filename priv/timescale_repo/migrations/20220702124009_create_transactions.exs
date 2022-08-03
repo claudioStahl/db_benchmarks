@@ -5,7 +5,7 @@ defmodule DbBenchmarks.TimescaleRepo.Migrations.CreateTransactionWithoutPartitio
 
   def up do
     execute("""
-    CREATE TABLE "transactions" (
+    CREATE TABLE "transaction_with_hypertable" (
       "id" bigserial,
       "user_id" varchar(255) NOT NULL,
       "value" bigint NOT NULL,
@@ -15,13 +15,13 @@ defmodule DbBenchmarks.TimescaleRepo.Migrations.CreateTransactionWithoutPartitio
     """)
 
     execute("""
-    SELECT create_hypertable('transactions', 'inserted_at');
+    SELECT create_hypertable('transaction_with_hypertable', 'inserted_at');
     """)
 
-    Migration.insert_rows("transactions")
+    Migration.insert_rows("transaction_with_hypertable")
 
     execute("""
-    CREATE INDEX transactions_idx ON transactions (
+    CREATE INDEX transaction_with_hypertable_idx ON transaction_with_hypertable (
       user_id, inserted_at DESC
     )
     """)
@@ -29,7 +29,7 @@ defmodule DbBenchmarks.TimescaleRepo.Migrations.CreateTransactionWithoutPartitio
 
   def down do
     execute("""
-    DROP TABLE transactions;
+    DROP TABLE transaction_with_hypertable;
     """)
   end
 end
