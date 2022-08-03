@@ -1,4 +1,4 @@
-defmodule DbBenchmarks.Repo.Migrations.CreateTransactionWithPartition do
+defmodule DbBenchmarks.PostgresRepo.Migrations.CreateTransactionWithPartition do
   use Ecto.Migration
 
   alias DbBenchmarks.Migration

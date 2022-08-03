@@ -1,7 +1,7 @@
 import Config
 
 config :db_benchmarks,
-  ecto_repos: [DbBenchmarks.PostgresRepo],
+  ecto_repos: [DbBenchmarks.PostgresRepo, DbBenchmarks.TimescaleRepo],
   serie_start: "2022-01-01",
   # serie_finish: "2022-12-31",
   serie_finish: "2022-01-02",
@@ -13,6 +13,16 @@ config :db_benchmarks, DbBenchmarks.PostgresRepo,
   hostname: "localhost",
   database: "postgres",
   port: 5432,
+  stacktrace: true,
+  show_sensitive_data_on_connection_error: true,
+  pool_size: 30
+
+config :db_benchmarks, DbBenchmarks.TimescaleRepo,
+  username: "postgres",
+  password: "postgres",
+  hostname: "localhost",
+  database: "postgres",
+  port: 5434,
   stacktrace: true,
   show_sensitive_data_on_connection_error: true,
   pool_size: 30

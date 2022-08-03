@@ -1,4 +1,4 @@
-defmodule DbBenchmarks.PostgresRepo.Migrations.CreateExtensions do
+defmodule DbBenchmarks.TimescaleRepo.Migrations.CreateExtensions do
   use Ecto.Migration
 
   def up do

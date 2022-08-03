@@ -8,7 +8,8 @@ defmodule DbBenchmarks.Application do
   @impl true
   def start(_type, _args) do
     children = [
-      DbBenchmarks.Repo
+      DbBenchmarks.PostgresRepo,
+      DbBenchmarks.TimescaleRepo
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

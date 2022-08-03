@@ -1,11 +1,11 @@
-defmodule DbBenchmarks.PostgresRepo.Migrations.CreateTransactionWithoutPartition do
+defmodule DbBenchmarks.TimescaleRepo.Migrations.CreateTransactionWithoutPartition do
   use Ecto.Migration
 
   alias DbBenchmarks.Migration
 
   def up do
     execute("""
-    CREATE TABLE "transaction_without_partition" (
+    CREATE TABLE "transactions" (
       "id" bigserial,
       "user_id" varchar(255) NOT NULL,
       "value" bigint NOT NULL,
@@ -14,15 +14,15 @@ defmodule DbBenchmarks.PostgresRepo.Migrations.CreateTransactionWithoutPartition
     )
     """)
 
-    Migration.insert_rows("transaction_without_partition")
+    Migration.insert_rows("transactions")
 
     execute("""
-    ALTER TABLE transaction_without_partition
+    ALTER TABLE transactions
     ADD PRIMARY KEY (id)
     """)
 
     execute("""
-    CREATE INDEX transaction_without_partition_idx ON transaction_without_partition (
+    CREATE INDEX transactions_idx ON transactions (
       user_id, inserted_at DESC
     )
     """)
@@ -30,7 +30,7 @@ defmodule DbBenchmarks.PostgresRepo.Migrations.CreateTransactionWithoutPartition
 
   def down do
     execute("""
-    DROP TABLE transaction_without_partition;
+    DROP TABLE transactions;
     """)
   end
 end
