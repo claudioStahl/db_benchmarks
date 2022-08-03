@@ -1,4 +1,4 @@
-defmodule DbBenchmarks.Repo do
+defmodule DbBenchmarks.PostgresRepo do
   use Ecto.Repo,
     otp_app: :db_benchmarks,
     adapter: Ecto.Adapters.Postgres
