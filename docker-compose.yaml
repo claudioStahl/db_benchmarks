@@ -2,7 +2,9 @@ version: "3.2"
 
 volumes:
   postgres_data:
-    driver: local       
+    driver: local
+  timescale_data:
+    driver: local
 
 services:
   postgres:
@@ -18,11 +20,28 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-    deploy:
-      resources:
-        limits:
-          cpus: "2"
-          memory: "1024M"
-        reservations:
-          cpus: "1"
-          memory: "512M"      
+    # deploy:
+    #   resources:
+    #     limits:
+    #       cpus: "2"
+    #       memory: "1024M"
+    #     reservations:
+    #       cpus: "1"
+    #       memory: "512M"      
+  timescale:
+    image: timescale/timescaledb-ha:pg14-latest
+    ports:
+      - 5434:5432
+    volumes:
+      - timescale_data:/var/lib/postgresql/data      
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres      
+    # deploy:
+    #   resources:
+    #     limits:
+    #       cpus: "2"
+    #       memory: "1024M"
+    #     reservations:
+    #       cpus: "1"
+    #       memory: "512M"
