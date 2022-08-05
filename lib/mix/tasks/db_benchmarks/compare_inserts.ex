@@ -1,7 +1,7 @@
 defmodule Mix.Tasks.DbBenchmarks.CompareInserts do
   use Mix.Task
 
-  alias DbBenchmarks.SQLInsertTask
+  alias DbBenchmarks.SQLInsertTaskBuilder
 
   require Logger
 
@@ -14,7 +14,10 @@ defmodule Mix.Tasks.DbBenchmarks.CompareInserts do
 
     jobs =
       Enum.reduce(config, %{}, fn {repo, tables}, acc ->
-        Map.merge(acc, SQLInsertTask.jobs(repo, tables))
+        tables
+        |> Enum.map(&{&1, SQLInsertTaskBuilder.build(repo, &1)})
+        |> Map.new()
+        |> Map.merge(acc)
       end)
 
     Benchee.run(jobs,

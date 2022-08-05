@@ -1,7 +1,7 @@
 defmodule Mix.Tasks.DbBenchmarks.CompareSelects do
   use Mix.Task
 
-  alias DbBenchmarks.SQLSelectTask
+  alias DbBenchmarks.SQLSelectTaskBuilder
 
   require Logger
 
@@ -22,8 +22,9 @@ defmodule Mix.Tasks.DbBenchmarks.CompareSelects do
 
       jobs =
         Enum.reduce(config, %{}, fn {repo, tables}, acc ->
-          repo
-          |> SQLSelectTask.jobs(tables, from, to)
+          tables
+          |> Enum.map(&{&1, SQLSelectTaskBuilder.build(repo, &1, from, to)})
+          |> Map.new()
           |> Map.merge(acc)
         end)
 
