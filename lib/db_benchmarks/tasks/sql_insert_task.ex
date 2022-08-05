@@ -1,27 +1,23 @@
-defmodule DbBenchmarks.PostgresInserts do
-  alias DbBenchmarks.PostgresRepo
-
-  require Logger
-
-  @tables ~w(
-    transaction_with_partition
-    transaction_without_partition
-  )
-
-  def jobs do
-    user_ids = PostgresRepo.query_single_list!("select id from users limit $1", [10_000])
+defmodule DbBenchmarks.SQLInsertTask do
+  def jobs(repo, tables) do
     start_time = System.monotonic_time()
-    @tables |> Enum.map(&{&1, fn -> exec(&1, user_ids, start_time) end}) |> Map.new()
+    user_ids = repo.query_single_list!("select id from users limit $1", [10_000])
+
+    tables
+    |> Enum.map(fn table ->
+      [start_dt] = repo.query_single_list!("select inserted_at from #{table} order by inserted_at desc limit 1")
+      {table, fn -> exec(repo, table, user_ids, start_time, start_dt) end}
+    end)
+    |> Map.new()
   end
 
-  defp exec(table, user_ids, start_time) do
+  defp exec(repo, table, user_ids, start_time, start_dt) do
     name = "insert_#{table}"
     user_id = user_ids |> Enum.random() |> Ecto.UUID.cast!()
-    start_dt = NaiveDateTime.new!(2023, 1, 1, 0, 0, 0)
     add = trunc((System.monotonic_time() - start_time) / 1_000)
     inserted_at = NaiveDateTime.add(start_dt, add, :millisecond)
 
-    PostgresRepo.query!(
+    repo.query!(
       """
       INSERT INTO #{table} (user_id, inserted_at, value, balance)
       values ($1, $2, round(random()*1000), round(random()*1000))

@@ -1,24 +1,20 @@
 defmodule Mix.Tasks.DbBenchmarks.CompareInserts do
   use Mix.Task
 
-  alias DbBenchmarks.PostgresInserts
-  alias DbBenchmarks.TimescaleInserts
+  alias DbBenchmarks.SQLInsertTask
 
   require Logger
 
   @requirements ["app.start"]
 
-  @modules [
-    PostgresInserts,
-    TimescaleInserts
-  ]
-
   def run(_args) do
     Logger.info("#{__MODULE__}.run")
 
+    config = Application.fetch_env!(:db_benchmarks, :sql_repo_tables)
+
     jobs =
-      Enum.reduce(@modules, %{}, fn module, acc ->
-        Map.merge(acc, module.jobs())
+      Enum.reduce(config, %{}, fn {repo, tables}, acc ->
+        Map.merge(acc, SQLInsertTask.jobs(repo, tables))
       end)
 
     Benchee.run(jobs,

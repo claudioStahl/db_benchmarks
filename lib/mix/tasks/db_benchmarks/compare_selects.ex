@@ -1,8 +1,7 @@
 defmodule Mix.Tasks.DbBenchmarks.CompareSelects do
   use Mix.Task
 
-  alias DbBenchmarks.PostgresSelects
-  alias DbBenchmarks.TimescaleSelects
+  alias DbBenchmarks.SQLSelectTask
 
   require Logger
 
@@ -15,19 +14,16 @@ defmodule Mix.Tasks.DbBenchmarks.CompareSelects do
     {~N[2022-12-28 00:00:00], ~N[2022-12-29 23:59:59]}
   ]
 
-  @modules [
-    PostgresSelects,
-    TimescaleSelects
-  ]
-
   def run(_args) do
+    config = Application.fetch_env!(:db_benchmarks, :sql_repo_tables)
+
     Enum.each(@dates, fn {from, to} ->
       Logger.info("#{__MODULE__}.run from=#{from} to=#{to}")
 
       jobs =
-        Enum.reduce(@modules, %{}, fn module, acc ->
-          from
-          |> module.jobs(to)
+        Enum.reduce(config, %{}, fn {repo, tables}, acc ->
+          repo
+          |> SQLSelectTask.jobs(tables, from, to)
           |> Map.merge(acc)
         end)
 
