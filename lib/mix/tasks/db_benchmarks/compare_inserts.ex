@@ -22,8 +22,8 @@ defmodule Mix.Tasks.DbBenchmarks.CompareInserts do
 
     Benchee.run(jobs,
       parallel: 10,
-      warmup: 10,
-      time: 10
+      warmup: 60,
+      time: 60
     )
   end
 end

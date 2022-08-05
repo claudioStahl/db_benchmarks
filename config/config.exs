@@ -29,9 +29,11 @@ config :db_benchmarks, DbBenchmarks.TimescaleRepo,
 
 config :db_benchmarks,
   sql_repo_tables: [
-    {DbBenchmarks.PostgresRepo, ~w(transaction_with_partition transaction_without_partition)},
+    {DbBenchmarks.PostgresRepo, ~w(transaction_with_partition)},
     {DbBenchmarks.TimescaleRepo, ~w(transaction_with_hypertable)}
   ]
+
+# transaction_without_partition
 
 config :logger, :console, format: "[$level] $message\n"
 

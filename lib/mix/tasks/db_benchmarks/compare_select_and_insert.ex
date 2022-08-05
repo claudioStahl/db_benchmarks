@@ -4,7 +4,7 @@ defmodule Mix.Tasks.DbBenchmarks.CompareSelectAndInsert do
   alias DbBenchmarks.PostgresRepo
   alias DbBenchmarks.TimescaleRepo
   alias DbBenchmarks.SQLInsertAndSelectTaskBuilder
-  alias DbBenchmarks.TimescaleInsertAndSelectTaskBuilder
+  # alias DbBenchmarks.TimescaleInsertAndSelectTaskBuilder
 
   require Logger
 
@@ -17,19 +17,19 @@ defmodule Mix.Tasks.DbBenchmarks.CompareSelectAndInsert do
       transaction_with_partition:
         SQLInsertAndSelectTaskBuilder.build(PostgresRepo, "transaction_with_partition"),
         transaction_with_hypertable:
-        SQLInsertAndSelectTaskBuilder.build(TimescaleRepo, "transaction_with_hypertable"),
-      transaction_with_hypertable_ca:
-        TimescaleInsertAndSelectTaskBuilder.build(
-          TimescaleRepo,
-          "transaction_with_hypertable",
-          "transaction_with_hypertable_ca"
-        )
+        SQLInsertAndSelectTaskBuilder.build(TimescaleRepo, "transaction_with_hypertable")
     }
+
+    # transaction_with_hypertable_ca: TimescaleInsertAndSelectTaskBuilder.build(
+    #   TimescaleRepo,
+    #   "transaction_with_hypertable",
+    #   "transaction_with_hypertable_ca"
+    # )
 
     Benchee.run(jobs,
       parallel: 10,
-      warmup: 10,
-      time: 10
+      warmup: 60,
+      time: 60
     )
   end
 end
