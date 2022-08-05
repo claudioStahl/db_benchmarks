@@ -16,7 +16,7 @@ defmodule Mix.Tasks.DbBenchmarks.CompareSelectAndInsert do
     jobs = %{
       transaction_with_partition:
         SQLInsertAndSelectTaskBuilder.build(PostgresRepo, "transaction_with_partition"),
-      transaction_with_partition:
+        transaction_with_hypertable:
         SQLInsertAndSelectTaskBuilder.build(TimescaleRepo, "transaction_with_hypertable"),
       transaction_with_hypertable_ca:
         TimescaleInsertAndSelectTaskBuilder.build(
