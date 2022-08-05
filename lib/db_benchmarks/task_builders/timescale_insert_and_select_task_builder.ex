@@ -8,7 +8,9 @@ defmodule DbBenchmarks.TimescaleInsertAndSelectTaskBuilder do
 
     [start_dt] =
       repo.query_single_list!(
-        "select inserted_at from #{table} order by inserted_at desc limit 1"
+        "select inserted_at from #{table} order by inserted_at desc limit 1",
+        [],
+        timeout: :infinity
       )
 
     fn -> exec(repo, table, view, user_ids, start_time, start_dt) end
