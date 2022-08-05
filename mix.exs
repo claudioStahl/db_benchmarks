@@ -38,7 +38,8 @@ defmodule DbBenchmarks.MixProject do
       "ecto.reset": ["ecto.drop", "ecto.setup"],
       "db_benchmarks.compare_all": [
         "db_benchmarks.compare_selects",
-        "db_benchmarks.compare_inserts"
+        "db_benchmarks.compare_inserts",
+        "db_benchmarks.compare_select_and_insert"
       ]
     ]
   end
