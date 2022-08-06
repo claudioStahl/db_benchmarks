@@ -1,3 +1,7 @@
+[info] 
+
+
+
 [info] Elixir.Mix.Tasks.DbBenchmarks.CompareSelects.run from=2022-11-30 00:00:00 to=2022-12-01 23:59:59
 Operating System: Linux
 CPU Information: Intel(R) Core(TM) i5-8400 CPU @ 2.80GHz
@@ -7,27 +11,29 @@ Elixir 1.13.4
 Erlang 25.0.2
 
 Benchmark suite executing with the following configuration:
-warmup: 10 s
-time: 50 s
+warmup: 1 min
+time: 1 min
 memory time: 0 ns
 reduction time: 0 ns
 parallel: 10
 inputs: none specified
-Estimated total run time: 3 min
+Estimated total run time: 6 min
 
 Benchmarking transaction_with_hypertable ...
 Benchmarking transaction_with_partition ...
 Benchmarking transaction_without_partition ...
 
 Name                                    ips        average  deviation         median         99th %
-transaction_with_hypertable           16.70       59.89 ms   ±140.75%       20.83 ms      377.43 ms
-transaction_without_partition          8.29      120.65 ms   ±231.84%       52.84 ms     1569.88 ms
-transaction_with_partition             7.49      133.54 ms   ±114.70%       91.90 ms      776.81 ms
+transaction_with_hypertable          111.45        8.97 ms   ±405.79%        1.82 ms      199.59 ms
+transaction_without_partition         16.02       62.44 ms   ±170.49%        4.64 ms      489.75 ms
+transaction_with_partition            13.24       75.54 ms   ±132.28%       44.18 ms      446.57 ms
 
 Comparison: 
-transaction_with_hypertable           16.70
-transaction_without_partition          8.29 - 2.01x slower +60.76 ms
-transaction_with_partition             7.49 - 2.23x slower +73.65 ms
+transaction_with_hypertable          111.45
+transaction_without_partition         16.02 - 6.96x slower +53.47 ms
+transaction_with_partition            13.24 - 8.42x slower +66.56 ms
+[info] 
+
 
 
 [info] Elixir.Mix.Tasks.DbBenchmarks.CompareSelects.run from=2022-12-02 00:00:00 to=2022-12-03 23:59:59
@@ -39,27 +45,29 @@ Elixir 1.13.4
 Erlang 25.0.2
 
 Benchmark suite executing with the following configuration:
-warmup: 10 s
-time: 50 s
+warmup: 1 min
+time: 1 min
 memory time: 0 ns
 reduction time: 0 ns
 parallel: 10
 inputs: none specified
-Estimated total run time: 3 min
+Estimated total run time: 6 min
 
 Benchmarking transaction_with_hypertable ...
 Benchmarking transaction_with_partition ...
 Benchmarking transaction_without_partition ...
 
 Name                                    ips        average  deviation         median         99th %
-transaction_with_hypertable          552.52        1.81 ms   ±185.36%        1.58 ms        4.84 ms
-transaction_with_partition            26.48       37.77 ms   ±211.29%        8.60 ms      365.96 ms
-transaction_without_partition          9.59      104.27 ms   ±263.75%       37.75 ms     1551.56 ms
+transaction_with_hypertable          592.40        1.69 ms    ±43.24%        1.55 ms        4.38 ms
+transaction_with_partition           235.36        4.25 ms   ±367.77%        2.46 ms       54.17 ms
+transaction_without_partition        224.67        4.45 ms   ±431.12%        2.16 ms       73.75 ms
 
 Comparison: 
-transaction_with_hypertable          552.52
-transaction_with_partition            26.48 - 20.87x slower +35.96 ms
-transaction_without_partition          9.59 - 57.61x slower +102.46 ms
+transaction_with_hypertable          592.40
+transaction_with_partition           235.36 - 2.52x slower +2.56 ms
+transaction_without_partition        224.67 - 2.64x slower +2.76 ms
+[info] 
+
 
 
 [info] Elixir.Mix.Tasks.DbBenchmarks.CompareSelects.run from=2022-12-15 00:00:00 to=2022-12-16 23:59:59
@@ -71,27 +79,29 @@ Elixir 1.13.4
 Erlang 25.0.2
 
 Benchmark suite executing with the following configuration:
-warmup: 10 s
-time: 50 s
+warmup: 1 min
+time: 1 min
 memory time: 0 ns
 reduction time: 0 ns
 parallel: 10
 inputs: none specified
-Estimated total run time: 3 min
+Estimated total run time: 6 min
 
 Benchmarking transaction_with_hypertable ...
 Benchmarking transaction_with_partition ...
 Benchmarking transaction_without_partition ...
 
 Name                                    ips        average  deviation         median         99th %
-transaction_with_hypertable          270.67        3.69 ms   ±543.05%        1.60 ms       63.54 ms
-transaction_with_partition            31.72       31.53 ms   ±190.82%        4.97 ms      271.62 ms
-transaction_without_partition         11.73       85.26 ms   ±241.87%       33.90 ms      975.50 ms
+transaction_with_hypertable          498.21        2.01 ms   ±432.10%        1.54 ms        4.85 ms
+transaction_without_partition        163.09        6.13 ms   ±400.38%        2.21 ms      109.92 ms
+transaction_with_partition           150.37        6.65 ms   ±362.39%        2.49 ms      111.41 ms
 
 Comparison: 
-transaction_with_hypertable          270.67
-transaction_with_partition            31.72 - 8.53x slower +27.84 ms
-transaction_without_partition         11.73 - 23.08x slower +81.57 ms
+transaction_with_hypertable          498.21
+transaction_without_partition        163.09 - 3.05x slower +4.12 ms
+transaction_with_partition           150.37 - 3.31x slower +4.64 ms
+[info] 
+
 
 
 [info] Elixir.Mix.Tasks.DbBenchmarks.CompareSelects.run from=2022-12-28 00:00:00 to=2022-12-29 23:59:59
@@ -103,27 +113,29 @@ Elixir 1.13.4
 Erlang 25.0.2
 
 Benchmark suite executing with the following configuration:
-warmup: 10 s
-time: 50 s
+warmup: 1 min
+time: 1 min
 memory time: 0 ns
 reduction time: 0 ns
 parallel: 10
 inputs: none specified
-Estimated total run time: 3 min
+Estimated total run time: 6 min
 
 Benchmarking transaction_with_hypertable ...
 Benchmarking transaction_with_partition ...
 Benchmarking transaction_without_partition ...
 
 Name                                    ips        average  deviation         median         99th %
-transaction_with_partition           196.04        5.10 ms   ±531.84%        2.46 ms       80.69 ms
-transaction_with_hypertable          137.22        7.29 ms   ±393.87%        1.87 ms      148.58 ms
-transaction_without_partition         13.73       72.84 ms   ±239.83%       28.91 ms      752.14 ms
+transaction_with_partition           375.99        2.66 ms    ±37.67%        2.49 ms        6.03 ms
+transaction_with_hypertable          235.62        4.24 ms   ±509.01%        1.81 ms       79.21 ms
+transaction_without_partition        130.59        7.66 ms   ±371.74%        2.36 ms      143.99 ms
 
 Comparison: 
-transaction_with_partition           196.04
-transaction_with_hypertable          137.22 - 1.43x slower +2.19 ms
-transaction_without_partition         13.73 - 14.28x slower +67.74 ms
+transaction_with_partition           375.99
+transaction_with_hypertable          235.62 - 1.60x slower +1.58 ms
+transaction_without_partition        130.59 - 2.88x slower +5.00 ms
+[info] 
+
 
 
 [info] Elixir.Mix.Tasks.DbBenchmarks.CompareInserts.run
@@ -135,24 +147,61 @@ Elixir 1.13.4
 Erlang 25.0.2
 
 Benchmark suite executing with the following configuration:
-warmup: 10 s
-time: 10 s
+warmup: 1 min
+time: 1 min
 memory time: 0 ns
 reduction time: 0 ns
 parallel: 10
 inputs: none specified
-Estimated total run time: 1 min
+Estimated total run time: 6 min
 
 Benchmarking transaction_with_hypertable ...
 Benchmarking transaction_with_partition ...
 Benchmarking transaction_without_partition ...
 
 Name                                    ips        average  deviation         median         99th %
-transaction_with_hypertable           58.02       17.24 ms    ±20.72%       16.85 ms       32.72 ms
-transaction_with_partition            48.46       20.64 ms    ±95.69%       16.68 ms      133.15 ms
-transaction_without_partition          6.32      158.13 ms    ±51.93%      141.63 ms      402.20 ms
+transaction_with_hypertable           43.93       22.76 ms   ±128.11%       16.69 ms      150.01 ms
+transaction_with_partition            13.80       72.48 ms   ±154.91%       16.92 ms      557.47 ms
+transaction_without_partition          6.93      144.24 ms    ±78.23%      121.10 ms      463.95 ms
 
 Comparison: 
-transaction_with_hypertable           58.02
-transaction_with_partition            48.46 - 1.20x slower +3.40 ms
-transaction_without_partition          6.32 - 9.17x slower +140.89 ms
+transaction_with_hypertable           43.93
+transaction_with_partition            13.80 - 3.18x slower +49.72 ms
+transaction_without_partition          6.93 - 6.34x slower +121.48 ms
+[info] 
+
+
+
+[info] Elixir.Mix.Tasks.DbBenchmarks.CompareSelectAndInsert.run
+Operating System: Linux
+CPU Information: Intel(R) Core(TM) i5-8400 CPU @ 2.80GHz
+Number of Available Cores: 6
+Available memory: 15.56 GB
+Elixir 1.13.4
+Erlang 25.0.2
+
+Benchmark suite executing with the following configuration:
+warmup: 1 min
+time: 1 min
+memory time: 0 ns
+reduction time: 0 ns
+parallel: 10
+inputs: none specified
+Estimated total run time: 8 min
+
+Benchmarking transaction_with_hypertable ...
+Benchmarking transaction_with_hypertable_ca ...
+Benchmarking transaction_with_partition ...
+Benchmarking transaction_without_partition ...
+
+Name                                     ips        average  deviation         median         99th %
+transaction_with_hypertable            36.73       27.22 ms   ±125.61%       17.85 ms      160.92 ms
+transaction_with_partition             32.88       30.42 ms   ±143.45%       17.78 ms      226.58 ms
+transaction_with_hypertable_ca         28.92       34.58 ms   ±115.06%       24.91 ms      189.25 ms
+transaction_without_partition           6.98      143.29 ms    ±99.66%       68.16 ms      519.05 ms
+
+Comparison: 
+transaction_with_hypertable            36.73
+transaction_with_partition             32.88 - 1.12x slower +3.19 ms
+transaction_with_hypertable_ca         28.92 - 1.27x slower +7.36 ms
+transaction_without_partition           6.98 - 5.26x slower +116.07 ms
