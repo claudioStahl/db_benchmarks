@@ -11,6 +11,7 @@ defmodule Mix.Tasks.DbBenchmarks.CompareSelectAndInsert do
   @requirements ["app.start"]
 
   def run(_args) do
+    Logger.info("\n\n\n")
     Logger.info("#{__MODULE__}.run")
 
     jobs = %{

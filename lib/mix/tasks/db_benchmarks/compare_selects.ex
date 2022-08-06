@@ -18,6 +18,7 @@ defmodule Mix.Tasks.DbBenchmarks.CompareSelects do
     config = Application.fetch_env!(:db_benchmarks, :sql_repo_tables)
 
     Enum.each(@dates, fn {from, to} ->
+      Logger.info("\n\n\n")
       Logger.info("#{__MODULE__}.run from=#{from} to=#{to}")
 
       jobs =

@@ -8,6 +8,7 @@ defmodule Mix.Tasks.DbBenchmarks.CompareInserts do
   @requirements ["app.start"]
 
   def run(_args) do
+    Logger.info("\n\n\n")
     Logger.info("#{__MODULE__}.run")
 
     config = Application.fetch_env!(:db_benchmarks, :sql_repo_tables)
