@@ -1,4 +1,11 @@
-# DbBenchmarks
+A project to compare the performance of some databases.
+
+## Databases
+
+- [x] Postgres without partition
+- [x] Postgres with partition
+- [x] TimescaleDB with Hypertables
+- [ ] Cassandra
 
 ## Requirements
 
